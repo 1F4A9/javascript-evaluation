@@ -1,1 +1,1 @@
-#  JavaScript in the browser, visualized. 🎓
+#  JavaScript in the browser, visualized. ⚡
