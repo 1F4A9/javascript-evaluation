@@ -1,1 +1,1 @@
-#  JavaScript browser flow visualized 🎓
+#  JavaScript in the browser, visualized. 🎓
