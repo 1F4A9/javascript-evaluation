@@ -4,10 +4,12 @@ import GlobalStyle from './styles/GlobalStyle';
 import Normalize from './styles/Normalize';
 
 import Evaluation from './components/evaluation/Evaluation';
+import AST from './components/evaluation/AST/AST';
 
 const RootContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding: 12px;
 `;
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
       <Normalize />
       <GlobalStyle />
       <Evaluation />
+      <AST />
     </RootContainer>
   );
 };

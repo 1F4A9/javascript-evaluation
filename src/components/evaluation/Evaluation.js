@@ -6,12 +6,12 @@ import TokenContainer from './tokens/TokenContainer';
 import Initial from './initial/Initial';
 
 const Container = styled.div`
-  height: 100vh;
   display: flex;
   flex: 1;
   flex-direction: row;
   align-items: center;
-  margin: 0px 12px;
+  // -24px beacuse padding on parent, App.js (nicely centered)
+  min-height: calc(100vh - 24px);
 `;
 
 export default function Evaluation() {
