@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
 import jsTokens from 'js-tokens';
+import { useEffect, useState } from 'react';
 
 import { decodeUTF16 } from '../../../utils/decodeUTF16';
 import Token from './Token';
