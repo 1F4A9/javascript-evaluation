@@ -8,9 +8,10 @@ import Initial from './initial/Initial';
 const Container = styled.div`
   height: 100vh;
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
-  margin-left: 12px;
+  margin: 0px 12px;
 `;
 
 export default function Evaluation() {
