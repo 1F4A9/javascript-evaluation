@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-import EncodedSourceCode from './initial/EncodedSourceCode';
-import SourceCodeInput from './initial/SourceCodeInput';
 import Stream from './stream/Stream';
 import TokenContainer from './tokens/TokenContainer';
+import Initial from './initial/Initial';
 
 const Container = styled.div`
   height: 100vh;
@@ -29,13 +28,11 @@ export default function Evaluation() {
 
   return (
     <Container>
-      <div className="column">
-        <SourceCodeInput
-          setEncodedSourceCode={setEncodedSourceCode}
-          setStartStream={setStartStream}
-        />
-        <EncodedSourceCode encodedSourceCode={encodedSourceCode} />
-      </div>
+      <Initial
+        encodedSourceCode={encodedSourceCode}
+        setEncodedSourceCode={setEncodedSourceCode}
+        setStartStream={setStartStream}
+      />
       <Stream
         encodedSourceCode={encodedSourceCode}
         startStream={startStream}
