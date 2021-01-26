@@ -11,15 +11,6 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   margin-left: 12px;
-
-  .column {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 0 0 35%;
-    height: 90vh;
-    min-width: 500px;
-  }
 `;
 
 export default function Evaluation() {
