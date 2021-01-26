@@ -18,8 +18,6 @@ const GlobalStyle = createGlobalStyle`
     color: var(--color-text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    overflow-y: hidden;
   }
 
   h3 {
