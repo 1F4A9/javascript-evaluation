@@ -7,11 +7,9 @@ import Token from './Token';
 
 const Container = styled.div`
   display: flex;
-  flex: 0 0 50%;
   flex-direction: column;
   height: 60vh;
   min-width: 500px;
-
   margin-left: 60px;
   flex: 1;
   
