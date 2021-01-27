@@ -30,16 +30,18 @@ const Container = styled.div`
   }
 `;
 
-export default function TokenContainer({ encodedSourceCode }) {
+export default function TokenContainer({ encodedSourceCode, setDecodedSourceCode }) {
   const [tokens, setTokens] = useState([]);
 
   useEffect(() => {
     // Decode UTF-16 Code Points to string
-    const sourceCode = decodeUTF16(encodedSourceCode).join('');
+    const decodedSourceCode = decodeUTF16(encodedSourceCode).join('');
 
-    const ECMAScriptTokens = esprima.tokenize(sourceCode);
+    const ECMAScriptTokens = esprima.tokenize(decodedSourceCode);
 
+    setDecodedSourceCode(decodedSourceCode)
     setTokens(ECMAScriptTokens);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [encodedSourceCode]);
 
   return (
