@@ -33,8 +33,6 @@ export default function Parser({ decodedSourceCode }) {
     setParsedSourceCode(acorn.parse(decodedSourceCode));
   }, [decodedSourceCode])
 
-  console.log(JSON.stringify(parsedSourceCode.body, null, 2));
-
   return (
     <Container>
       <h3>Parser</h3>
