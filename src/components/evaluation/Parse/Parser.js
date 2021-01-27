@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const acorn = require('acorn');
 
@@ -26,12 +26,10 @@ const Container = styled.div`
   }
 `;
 
-export default function Parser({ decodedSourceCode }) {
-  const [parsedSourceCode, setParsedSourceCode] = useState([]);
-
+export default function Parser({ decodedSourceCode, parsedSourceCode, setParsedSourceCode }) {
   useEffect(() => {
     setParsedSourceCode(acorn.parse(decodedSourceCode));
-  }, [decodedSourceCode])
+  }, [decodedSourceCode, setParsedSourceCode])
 
   return (
     <Container>

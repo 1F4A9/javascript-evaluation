@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import AST from './Parse/AST';
+import { useState } from 'react';
 
+import AST from './Parse/AST';
 import Parser from './Parse/Parser';
 
 const Container = styled.div`
@@ -13,10 +14,18 @@ const Container = styled.div`
 `;
 
 export default function EvaluationParse({ decodedSourceCode }) {
+  const [parsedSourceCode, setParsedSourceCode] = useState([]);
+
   return (
     <Container>
-      <Parser decodedSourceCode={decodedSourceCode} />
-      <AST />
+      <Parser
+        decodedSourceCode={decodedSourceCode}
+        parsedSourceCode={parsedSourceCode}
+        setParsedSourceCode={setParsedSourceCode}
+      />
+      <AST
+        parsedSourceCode={parsedSourceCode}
+      />
     </Container>
   );
 };
