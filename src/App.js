@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
 import Normalize from './styles/Normalize';
 
-import Evaluation from './components/evaluation/Evaluation';
-import AST from './components/evaluation/AST/AST';
+import EvaluationMain from './components/evaluation/EvaluationMain';
 
 const RootContainer = styled.div`
   display: flex;
@@ -17,8 +16,7 @@ function App() {
     <RootContainer>
       <Normalize />
       <GlobalStyle />
-      <Evaluation />
-      <AST />
+      <EvaluationMain />
     </RootContainer>
   );
 };
