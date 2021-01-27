@@ -32,7 +32,7 @@ export default function SingleToken({ token }) {
   return (
     <Container>
       <div className="type">{trimLongTypeNames(token.type)}</div>
-      <div className="value">{JSON.stringify(token.value)}</div>
+      <div className="value">{token.value}</div>
     </Container>
   );
 };

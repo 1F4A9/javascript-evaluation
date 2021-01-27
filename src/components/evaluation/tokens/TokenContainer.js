@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import jsTokens from 'js-tokens';
 import { useEffect, useState } from 'react';
 
 import { decodeUTF16 } from '../../../utils/decodeUTF16';
 import Token from './Token';
+
+const esprima = require('esprima');
 
 const Container = styled.div`
   display: flex;
@@ -36,7 +37,7 @@ export default function TokenContainer({ encodedSourceCode }) {
     // Decode UTF-16 Code Points to string
     const sourceCode = decodeUTF16(encodedSourceCode).join('');
 
-    const ECMAScriptTokens = Array.from(jsTokens(sourceCode));
+    const ECMAScriptTokens = esprima.tokenize(sourceCode);
 
     setTokens(ECMAScriptTokens);
   }, [encodedSourceCode]);
