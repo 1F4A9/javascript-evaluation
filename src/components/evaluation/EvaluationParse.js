@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 
 export default function EvaluationParse({ decodedSourceCode }) {
-  const [parsedSourceCode, setParsedSourceCode] = useState([]);
+  const [parsedSourceCode, setParsedSourceCode] = useState({});
 
   return (
     <Container>
