@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import AST from './Parse/AST';
 import Parser from './Parse/Parser';
+
+const acorn = require('acorn');
 
 const Container = styled.div`
   flex: 1;
@@ -16,16 +17,13 @@ const Container = styled.div`
 export default function EvaluationParse({ decodedSourceCode }) {
   const [parsedSourceCode, setParsedSourceCode] = useState({});
 
+  useEffect(() => {
+    setParsedSourceCode(acorn.parse(decodedSourceCode));
+  }, [decodedSourceCode, setParsedSourceCode])
+
   return (
     <Container>
-      <Parser
-        decodedSourceCode={decodedSourceCode}
-        parsedSourceCode={parsedSourceCode}
-        setParsedSourceCode={setParsedSourceCode}
-      />
-      <AST
-        parsedSourceCode={parsedSourceCode}
-      />
+      <Parser parsedSourceCode={parsedSourceCode} />
     </Container>
   );
 };
