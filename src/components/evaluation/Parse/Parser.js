@@ -30,7 +30,6 @@ const Container = styled.div`
 `;
 
 export default function Parser({ parsedSourceCode }) {
-
   useEffect(() => {
     if (isEmptyObject(parsedSourceCode)) return;
 
@@ -38,12 +37,12 @@ export default function Parser({ parsedSourceCode }) {
 
     walk.ancestor((parsedSourceCode), {
       FunctionDeclaration(node) {
-        // returns obj with necessary scope data
-        const scope = createFunctionalContext(node);
+        // returns obj with necessary context data
+        const context = createFunctionalContext(node);
 
-        initialScopes.push(scope);
+        initialScopes.push(context);
 
-        console.log(initialScopes)
+        console.log(initialScopes);
       }
     })
   }, [parsedSourceCode])
