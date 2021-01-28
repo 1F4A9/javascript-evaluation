@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
 
-const acorn = require('acorn');
+import { isEmptyObject } from '../../../utils/isEmptyObject';
+import { createFunctionalContext, createGlobalContext } from '../../../utils/createContexts';
+
+const walk = require('acorn-walk');
 
 const Container = styled.div`
   flex: 1 1 50%;
@@ -26,14 +29,28 @@ const Container = styled.div`
   }
 `;
 
-export default function Parser({ decodedSourceCode, parsedSourceCode, setParsedSourceCode }) {
+export default function Parser({ parsedSourceCode }) {
+
   useEffect(() => {
-    setParsedSourceCode(acorn.parse(decodedSourceCode));
-  }, [decodedSourceCode, setParsedSourceCode])
+    if (isEmptyObject(parsedSourceCode)) return;
+
+    const initialScopes = [createGlobalContext()];
+
+    walk.ancestor((parsedSourceCode), {
+      FunctionDeclaration(node) {
+        // returns obj with necessary scope data
+        const scope = createFunctionalContext(node);
+
+        initialScopes.push(scope);
+
+        console.log(initialScopes)
+      }
+    })
+  }, [parsedSourceCode])
 
   return (
     <Container>
-      <h3>Parser</h3>
+      <h3>Parser {'>'} AST</h3>
       <div className="border">
         <div className="json-container">
           <div className="pre">{JSON.stringify(parsedSourceCode.body, null, 2)}</div>
