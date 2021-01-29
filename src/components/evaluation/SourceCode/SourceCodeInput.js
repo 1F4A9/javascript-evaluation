@@ -46,7 +46,7 @@ export default function SourceCodeInput({ setEncodedSourceCode, setStartStream }
     <Container>
       <h3>Source Code</h3>
       <form onSubmit={onSubmit}>
-        <textarea onChange={onChange} rows="5" />
+        <textarea onChange={onChange} rows="5" spellCheck={false} />
         <input type="submit" />
       </form>
     </Container>
