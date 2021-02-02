@@ -1,12 +1,17 @@
-export function encodeUTF16(sourceCode) {
-  let encodedStream = [];
-  for (let i = 0; i < sourceCode.length; i++) {
-    // creates 4 digit UTF-16 Code Points
-    encodedStream[i] = formatUTF16ToHex(sourceCode.charCodeAt(i), 4);
+export function encodeUTF16(sourceCodeString) {
+  const stream = [];
+
+  for (let i = 0; i < sourceCodeString.length; i++) {
+    const codePoint = sourceCodeString.charCodeAt(i);
+
+    const UTF16encodedCodePoint = convertAndFormatToUTF16(codePoint, 4);
+
+    stream.push(UTF16encodedCodePoint);
   };
-  return encodedStream;
+
+  return stream;
 };
 
-function formatUTF16ToHex(UTF16codePoint, padding) {
+function convertAndFormatToUTF16(UTF16codePoint, padding) {
   return UTF16codePoint.toString(16).padStart(padding, '0');
 };
