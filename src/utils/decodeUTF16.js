@@ -1,7 +1,13 @@
 export function decodeUTF16(encodedStream) {
-  let decodedStream = [];
+  let characters = [];
+
   for (let i = 0; i < encodedStream.length; i++) {
-    decodedStream[i] = String.fromCodePoint(parseInt(encodedStream[i], 16));
+    const codePoint = parseInt(encodedStream[i], 16);
+
+    const character = String.fromCodePoint(codePoint);
+
+    characters.push(character);
   };
-  return decodedStream;
+
+  return characters.join('');
 };
