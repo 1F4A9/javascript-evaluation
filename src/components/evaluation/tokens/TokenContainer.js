@@ -34,12 +34,11 @@ export default function TokenContainer({ encodedSourceCode, setDecodedSourceCode
   const [tokens, setTokens] = useState([]);
 
   useEffect(() => {
-    // Decode UTF-16 Code Points to string
-    const decodedSourceCode = decodeUTF16(encodedSourceCode).join('');
+    const sourceCode = decodeUTF16(encodedSourceCode);
 
-    const ECMAScriptTokens = esprima.tokenize(decodedSourceCode);
+    const ECMAScriptTokens = esprima.tokenize(sourceCode);
 
-    setDecodedSourceCode(decodedSourceCode)
+    setDecodedSourceCode(sourceCode);
     setTokens(ECMAScriptTokens);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [encodedSourceCode]);
