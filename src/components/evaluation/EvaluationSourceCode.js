@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-import Stream from './stream/Stream';
-import TokenContainer from './tokens/TokenContainer';
+import Stream from './Stream/Stream';
+import TokenContainer from './Tokens/TokenContainer';
 import Initial from './SourceCode/Initial';
 
 const Container = styled.div`
