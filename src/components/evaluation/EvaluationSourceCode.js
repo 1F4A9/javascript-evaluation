@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
+import Initial from './SourceCode/Initial';
 import Stream from './Stream/Stream';
 import TokenContainer from './Tokens/TokenContainer';
-import Initial from './SourceCode/Initial';
 
 const Container = styled.div`
   display: flex;
