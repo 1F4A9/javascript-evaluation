@@ -18,7 +18,11 @@ export default function EvaluationParse({ decodedSourceCode }) {
   const [parsedSourceCode, setParsedSourceCode] = useState({});
 
   useEffect(() => {
-    setParsedSourceCode(acorn.parse(decodedSourceCode));
+    try {
+      setParsedSourceCode(acorn.parse(decodedSourceCode));
+    } catch (error) {
+      console.log(error);
+    }
   }, [decodedSourceCode, setParsedSourceCode])
 
   return (
