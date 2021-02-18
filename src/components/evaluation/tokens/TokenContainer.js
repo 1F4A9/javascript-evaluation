@@ -13,11 +13,11 @@ const Container = styled.div`
   min-width: 500px;
   margin-left: 60px;
   flex: 1;
-  
+
   h3 {
     text-align: center;
   }
-  
+
   .container {
     border: 2px solid var(--color-scale-blue-1);
     flex: 1;
