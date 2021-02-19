@@ -26,8 +26,10 @@ const Container = styled.div`
   }
 `;
 
+const initialCodeExample = `const fruits = ['apple', 'banana', 'orange'];`;
+
 export default function SourceCodeInput({ setEncodedSourceCode, setStartStream }) {
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState(initialCodeExample);
 
   function onChange(e) {
     setUserInput(e.target.value);
@@ -46,7 +48,7 @@ export default function SourceCodeInput({ setEncodedSourceCode, setStartStream }
     <Container>
       <h3>Source Code</h3>
       <form onSubmit={onSubmit}>
-        <textarea onChange={onChange} rows="5" spellCheck={false} />
+        <textarea onChange={onChange} rows="5" spellCheck={false} defaultValue={userInput} />
         <input type="submit" />
       </form>
     </Container>
