@@ -19,7 +19,7 @@ export default function EvaluationParse({ decodedSourceCode }) {
 
   useEffect(() => {
     try {
-      setParsedSourceCode(acorn.parse(decodedSourceCode));
+      setParsedSourceCode(acorn.parse(decodedSourceCode, { ecmaVersion: 2020 }));
     } catch (error) {
       console.log(error);
     }
